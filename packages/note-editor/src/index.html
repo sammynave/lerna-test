@@ -1,0 +1,30 @@
+hi
+{#await promise}
+  <p>wait for it...</p>
+{:then typeset}
+  <p>typeset text is {typeset}!</p>
+{:catch error}
+  <p>well that's odd</p>
+{/await}
+
+<script>
+  import hello from '@lovepop/typesetter';
+  import { identity } from 'ramda';
+
+  export default {
+    oncreate() {
+      console.log(this.options);
+      console.log(this);
+      console.log(identity('i'));
+    },
+    data() {
+      return {
+        promise: new Promise(fulfil => {
+          setTimeout(() => {
+            fulfil(hello())
+          }, 3000);
+        })
+      };
+    }
+  };
+</script>
