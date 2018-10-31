@@ -1,5 +1,5 @@
 {
-  "name": "@lovepop-test/note-editor",
+  "name": "lovepop-test-note-editor",
   "version": "0.5.0",
   "svelte": "src/index.html",
   "module": "index.mjs",
@@ -20,7 +20,7 @@
     "svelte": "^2.15.1"
   },
   "dependencies": {
-    "@lovepop-test/typesetter": "0.5.0",
+    "lovepop-test-typesetter": "0.5.0",
     "ramda": "^0.25.0"
   },
   "keywords": [
