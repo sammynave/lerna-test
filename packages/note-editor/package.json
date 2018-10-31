@@ -1,6 +1,6 @@
 {
   "name": "lovepop-test-note-editor",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "svelte": "src/index.html",
   "module": "index.mjs",
   "main": "index.js",
