@@ -235,6 +235,7 @@ var proto = {
 function hello() {
     return 'Hello from typesetter';
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiZmlsZTovLy9Vc2Vycy9zYW1teS9Db2RlL2xvdmVwb3AvbGVybmEtdGVzdC9wYWNrYWdlcy90eXBlc2V0dGVyLyIsInNvdXJjZXMiOlsiaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFDLE9BQU87SUFDWixPQUFPLHVCQUF1QixDQUFDO0FBQ2pDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBoZWxsbygpIHtcbiAgcmV0dXJuICdIZWxsbyBmcm9tIHR5cGVzZXR0ZXInO1xufVxuIl19
 
 function _isPlaceholder(a) {
        return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
@@ -3440,6 +3441,13 @@ function oncreate() {
   console.log(this);
   console.log(identity('i'));
 }
+function add_css() {
+	var style = createElement("style");
+	style.id = 'svelte-4jtycq-style';
+	style.textContent = ".yellow.svelte-4jtycq{color:#e9da32}.green.svelte-4jtycq{color:#1ec740}.red.svelte-4jtycq{color:#cc2639}";
+	append(document.head, style);
+}
+
 function create_main_fragment(component, ctx) {
 	var text, await_block_anchor, promise;
 
@@ -3501,6 +3509,7 @@ function create_catch_block(component, ctx) {
 		c() {
 			p = createElement("p");
 			p.textContent = "well that's odd";
+			p.className = "red svelte-4jtycq";
 		},
 
 		m(target, anchor) {
@@ -3527,6 +3536,7 @@ function create_then_block(component, ctx) {
 			text0 = createText("typeset text is ");
 			text1 = createText(text1_value);
 			text2 = createText("!");
+			p.className = "green svelte-4jtycq";
 		},
 
 		m(target, anchor) {
@@ -3550,7 +3560,7 @@ function create_then_block(component, ctx) {
 	};
 }
 
-// (2:16)    <p>wait for it...</p> {:then typeset}
+// (2:16)    <p class="yellow">wait for it...</p> {:then typeset}
 function create_pending_block(component, ctx) {
 	var p;
 
@@ -3558,6 +3568,7 @@ function create_pending_block(component, ctx) {
 		c() {
 			p = createElement("p");
 			p.textContent = "wait for it...";
+			p.className = "yellow svelte-4jtycq";
 		},
 
 		m(target, anchor) {
@@ -3578,6 +3589,8 @@ function Index(options) {
 	init(this, options);
 	this._state = assign(data(), options.data);
 	this._intro = true;
+
+	if (!document.getElementById("svelte-4jtycq-style")) add_css();
 
 	this._fragment = create_main_fragment(this, this._state);
 
