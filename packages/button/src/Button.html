@@ -1,0 +1,23 @@
+<button
+  class="green"
+  on:click="fire('click')"
+>
+  <slot>
+    default
+  </slot>
+</button>
+
+<style>
+  .green {
+    background-color: #077e4e;
+  }
+</style>
+
+<script>
+  export default {
+    tag: 'lp-button',
+    oncreate() {
+      console.log(this.options);
+    }
+  };
+</script>
